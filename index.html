@@ -57,7 +57,7 @@
             }
         }
 
-                // get the style from the user input and makes it lower case
+        // get the style from the user input and makes it lower case
         function askUser(){
             return prompt("Rock, Paper, Scissors?").toLowerCase();
         }
@@ -75,7 +75,7 @@
                 const userSelection = askUser();
                 const computerSelection = computerPlay();
                 console.log(playRound(userSelection, computerSelection))
-                console.log("current turn is - User: " + userScore + " and Computer: " + computerScore );
+                console.log("current score is - User: " + userScore + " and Computer: " + computerScore );
             }
         }
         game();
