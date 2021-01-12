@@ -10,7 +10,6 @@
         let userScore = 0;
         let computerScore = 0;
         // create a function conputer selection which uses the random function to select one option in the list
-
         function computerPlay() {
             let listLength = rockPaperScissorList.length
             return rockPaperScissorList[getRandomInt(listLength)]
@@ -29,26 +28,26 @@
                     return "You both said " + user + ". So that is a tie."
                 } else if (user === "rock") {
                     if (computer === "paper") {
-                        setComputerScore();
+                        increaseComputerScore();
                         return "You lose: Paper beats Rock." // computer wins
                     } else if (computer === "scissors") {
-                        setUserScore();
+                        increaseUserScore();
                         return "You win: Rock beats Scissors" // user wins
                     }
                 } else if (user === "paper") {
                     if (computer === "rock") {
-                        setUserScore();
+                        increaseUserScore();
                         return "You win: Paper beats Rock."; // user wins
                     } else if (computer === "scissors") {
-                        setComputerScore();
+                        increaseComputerScore();
                         return "You lose: Scissors beats Paper"; // computer wins
                     }
                 } else if (user === "scissors") {
                     if (computer === "paper") {
-                        setUserScore();
+                        increaseUserScore();
                         return "You win: Scissors beats Paper."; // user wins
                     } else if (computer === "rock") {
-                        setComputerScore();
+                        increaseComputerScore();
                         return "You lose: Rock beats scissors"; // computer wins
                     }
                 }
@@ -58,24 +57,24 @@
         }
 
         // get the style from the user input and makes it lower case
-        function askUser(){
+        function askUser() {
             return prompt("Rock, Paper, Scissors?").toLowerCase();
         }
 
-        function setComputerScore(){
+        function increaseComputerScore() {
             computerScore++;
         }
 
-        function setUserScore(){
+        function increaseUserScore() {
             userScore++;
         }
 
-        function game(){
-            while(userScore < 5 && computerScore < 5){
+        function game() {
+            while (userScore < 5 && computerScore < 5) {
                 const userSelection = askUser();
                 const computerSelection = computerPlay();
                 console.log(playRound(userSelection, computerSelection))
-                console.log("current score is - User: " + userScore + " and Computer: " + computerScore );
+                console.log("current score is - User: " + userScore + " and Computer: " + computerScore);
             }
         }
         game();
