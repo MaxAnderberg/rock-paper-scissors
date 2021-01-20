@@ -1,6 +1,11 @@
 const rockPaperScissorList = ["rock", "paper", "scissors"] // different styles
 let userScore = 0;
 let computerScore = 0;
+
+const rockButton =  document.getElementById("rock")
+const paperButton =  document.getElementById("paper")
+const scissorsButton =  document.getElementById("scissors")
+
 // create a function conputer selection which uses the random function to select one option in the list
 function computerPlay() {
     let listLength = rockPaperScissorList.length
@@ -43,7 +48,7 @@ function playRound(user, computer) {
                 return "You lose: Rock beats scissors"; // computer wins
             }
         }
-        
+
     } else {
         console.log("This is the else you said something that is not useful.")
     }
@@ -55,11 +60,11 @@ function askUser(value) {
     return value; //prompt("Rock, Paper, Scissors?").toLowerCase();
 }
 
-function displayUserScore(){
+function displayUserScore() {
     return userScore;
 }
 
-function displayComputerScore(){
+function displayComputerScore() {
     return computerScore;
 }
 
@@ -71,35 +76,47 @@ function increaseUserScore() {
     userScore++;
 }
 
-function game() {
-
-    const userSelection = askUser();
-    const computerSelection = computerPlay();
-    console.log(playRound(userSelection, computerSelection))
-    console.log("current score is - User: " + userScore + " and Computer: " + computerScore);
+function disablePlayButtons(){
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
 }
 
-document.getElementById("rock").addEventListener("click", function () {
-    console.log(playRound(askUser("rock"), computerPlay()));
-    document.getElementById("scoreText").innerHTML=`user: ${displayUserScore()} computer: ${displayComputerScore()}`;
+function enablePlayButtons(){
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scissorsButton.disabled = false;
+}
 
+function game() {
+    document.getElementById("scoreText").innerHTML = `user: ${displayUserScore()} computer: ${displayComputerScore()}`;
+    if(computerScore >= 5){
+        document.getElementById("winLose").innerHTML = `You lose sucker`;
+        disablePlayButtons();
+
+    } else if (userScore >= 5){
+        document.getElementById("winLose").innerHTML = `You win sucker`;
+        disablePlayButtons();
+    }
+}
+    rockButton.addEventListener("click", function () {
+        playRound(askUser("rock"), computerPlay());
+        game();
+    });
+
+    paperButton.addEventListener("click", function () {
+        playRound(askUser("paper"), computerPlay());
+        game();
+    });
+    scissorsButton.addEventListener("click", function () {
+        playRound(askUser("scissors"), computerPlay());
+        game();
+    });
+
+// reset the score
+document.getElementById("playAgain").addEventListener("click", function () {
+    userScore = 0;
+    computerScore = 0;
+    enablePlayButtons();
+    game()
 });
-
-document.getElementById("paper").addEventListener("click", function () {
-    console.log(playRound(askUser("paper"), computerPlay()));
-});
-document.getElementById("scissors").addEventListener("click", function () {
-    console.log(playRound(askUser("scissors"), computerPlay()));
-});
-
-
-/*
-
-    Lets think about this... What is the general game loop going to look like. 
-
-    * Click start game button resets the score to 0
-    * Game loop should be first to 5 points
-    * Play again? button should appear if clicked, restart game loop.
-    * 
-
-*/ 
