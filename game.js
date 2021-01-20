@@ -43,14 +43,24 @@ function playRound(user, computer) {
                 return "You lose: Rock beats scissors"; // computer wins
             }
         }
+        
     } else {
         console.log("This is the else you said something that is not useful.")
     }
 }
 
 // get the style from the user input and makes it lower case
-function askUser() {
-    return prompt("Rock, Paper, Scissors?").toLowerCase();
+function askUser(value) {
+    // we aren't going to prompt the user anymore. 
+    return value; //prompt("Rock, Paper, Scissors?").toLowerCase();
+}
+
+function displayUserScore(){
+    return userScore;
+}
+
+function displayComputerScore(){
+    return computerScore;
 }
 
 function increaseComputerScore() {
@@ -62,11 +72,34 @@ function increaseUserScore() {
 }
 
 function game() {
-    while (userScore < 5 && computerScore < 5) {
-        const userSelection = askUser();
-        const computerSelection = computerPlay();
-        console.log(playRound(userSelection, computerSelection))
-        console.log("current score is - User: " + userScore + " and Computer: " + computerScore);
-    }
+
+    const userSelection = askUser();
+    const computerSelection = computerPlay();
+    console.log(playRound(userSelection, computerSelection))
+    console.log("current score is - User: " + userScore + " and Computer: " + computerScore);
 }
-game();
+
+document.getElementById("rock").addEventListener("click", function () {
+    console.log(playRound(askUser("rock"), computerPlay()));
+    document.getElementById("scoreText").innerHTML=`user: ${displayUserScore()} computer: ${displayComputerScore()}`;
+
+});
+
+document.getElementById("paper").addEventListener("click", function () {
+    console.log(playRound(askUser("paper"), computerPlay()));
+});
+document.getElementById("scissors").addEventListener("click", function () {
+    console.log(playRound(askUser("scissors"), computerPlay()));
+});
+
+
+/*
+
+    Lets think about this... What is the general game loop going to look like. 
+
+    * Click start game button resets the score to 0
+    * Game loop should be first to 5 points
+    * Play again? button should appear if clicked, restart game loop.
+    * 
+
+*/ 
