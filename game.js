@@ -26,26 +26,26 @@ function playRound(user, computer) {
         } else if (user === "rock") {
             if (computer === "paper") {
                 increaseComputerScore();
-                return "You lose: Paper beats Rock." // computer wins
+                return document.getElementById("playedhand").innerHTML = (`You lose: Paper beats Rock.`) // computer wins
             } else if (computer === "scissors") {
                 increaseUserScore();
-                return "You win: Rock beats Scissors" // user wins
+                return document.getElementById("playedhand").innerHTML = (`You win: Rock beats Scissors`) // user wins
             }
         } else if (user === "paper") {
             if (computer === "rock") {
                 increaseUserScore();
-                return "You win: Paper beats Rock."; // user wins
+                return document.getElementById("playedhand").innerHTML = (`You win: Paper beats Rock.`); // user wins
             } else if (computer === "scissors") {
                 increaseComputerScore();
-                return "You lose: Scissors beats Paper"; // computer wins
+                return document.getElementById("playedhand").innerHTML = (`You lose: Scissors beats Paper`); // computer wins
             }
         } else if (user === "scissors") {
             if (computer === "paper") {
                 increaseUserScore();
-                return "You win: Scissors beats Paper."; // user wins
+                return document.getElementById("playedhand").innerHTML = (`You win: Scissors beats Paper.`); // user wins
             } else if (computer === "rock") {
                 increaseComputerScore();
-                return "You lose: Rock beats scissors"; // computer wins
+                return document.getElementById("playedhand").innerHTML = (`You lose: Rock beats scissors`); // computer wins
             }
         }
 
