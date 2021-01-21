@@ -22,7 +22,7 @@ function playRound(user, computer) {
     // check if the user said either, rock, paper or scissor
     if (rockPaperScissorList.includes(user)) {
         if (user === computer) {
-            return "You both said " + user + ". So that is a tie."
+            return document.getElementById("playedhand").innerHTML = (`You both said ${user}. So that is a tie.`) 
         } else if (user === "rock") {
             if (computer === "paper") {
                 increaseComputerScore();
@@ -89,7 +89,7 @@ function enablePlayButtons(){
 }
 
 function game() {
-    document.getElementById("scoreText").innerHTML = `user: ${displayUserScore()} computer: ${displayComputerScore()}`;
+    document.getElementById("scoreText").innerHTML = `Computer: ${displayComputerScore()} - User: ${displayUserScore()}`;
     if(computerScore >= 5){
         document.getElementById("winLose").innerHTML = `You lose sucker`;
         disablePlayButtons();
@@ -100,8 +100,11 @@ function game() {
     }
 }
     rockButton.addEventListener("click", function () {
-        playRound(askUser("rock"), computerPlay());
+        const gameText = playRound(askUser("rock"), computerPlay());
+        
+        console.log(gameText)
         game();
+ 
     });
 
     paperButton.addEventListener("click", function () {
