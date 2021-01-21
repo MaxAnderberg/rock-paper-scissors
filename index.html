@@ -4,24 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <title>RPS</title>
 </head>
 
 <body>
-    <h1>Test</h1>
+    <main>
+        <section class="glass">
+            <div class="dashboard">
+                <div class="score">
+                    <h2>Score</h2>
+                    <p>
+                        Computer: 0 - User: 0
+                    </p>
+                </div>
+                <div class="about">
+                    <h2>About</h2>
+                    <p>This game is an OdinProject excercise. First to 5 wins</p>
+                </div>
+                <div class="links">
+                    <div class="link">
+                        <img class="githublogo" src="images/github.png" alt="">
+                        <h2>GitHub</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="game">
+                <h2>Rock Paper Scissors</h2>
+                <img class="icon" src="images/tri-icon.png" alt="">
+                <div>   
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissors">Scissors</button>
+                
+                <div id="scoreText">
+                </div>
+                <div id="winLose">
+                </div>
+                <div>
+                    <button id="playAgain">Play again</button>
+                </div></div>
+                <div class="playedhand"></div>
+                <div class="winnerloser"></div>
+            </div>
+        </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
 
-    <section>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </section>
-    <div id="scoreText">
-    </div>
-    <div id="winLose">
-    </div>
-    <div>
-        <button id="playAgain">Play again</button>
-    </div>
 
     <script src="game.js"></script>
 </body>
