@@ -56,8 +56,7 @@ function playRound(user, computer) {
 
 // get the style from the user input and makes it lower case
 function askUser(value) {
-    // we aren't going to prompt the user anymore. 
-    return value; //prompt("Rock, Paper, Scissors?").toLowerCase();
+    return value;
 }
 
 function displayUserScore() {
@@ -120,6 +119,9 @@ function game() {
 document.getElementById("playAgain").addEventListener("click", function () {
     userScore = 0;
     computerScore = 0;
+    document.getElementById("winLose").innerHTML = ``;
+    document.getElementById("playedhand").innerHTML = (`Let the games begin`);
+
     enablePlayButtons();
     game()
 });
