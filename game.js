@@ -116,7 +116,7 @@ function game() {
     });
 
 // reset the score
-document.getElementById("playAgain").addEventListener("click", function () {
+document.getElementById("playagain").addEventListener("click", function () {
     userScore = 0;
     computerScore = 0;
     document.getElementById("winLose").innerHTML = ``;

@@ -110,6 +110,22 @@ button{
     border: none;
 }
 
+#playagain{
+    background: linear-gradient(
+        to bottom right,
+         rgba(67, 188, 232,0.4),
+         rgba(67, 188, 232,0.8));
+    color: white;
+    padding: 15px 32px;
+    margin: 1rem;
+    width:160px;
+    height:60px;
+    text-align:center;
+    border-radius: 13px;
+    border: none;
+
+}
+
 .playbutton button:hover{
     cursor: pointer;
 }
