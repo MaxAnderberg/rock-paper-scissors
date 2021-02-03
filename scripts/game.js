@@ -119,7 +119,7 @@ function game() {
 document.getElementById("playagain").addEventListener("click", function () {
     userScore = 0;
     computerScore = 0;
-    document.getElementById("winLose").innerHTML = ``;
+    document.getElementById("winLose").innerHTML = `Who will win?`;
     document.getElementById("playedhand").innerHTML = (`Let the games begin`);
 
     enablePlayButtons();
