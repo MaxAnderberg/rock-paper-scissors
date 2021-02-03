@@ -90,11 +90,11 @@ function enablePlayButtons(){
 function game() {
     document.getElementById("scoreText").innerHTML = `Computer: ${displayComputerScore()} - User: ${displayUserScore()}`;
     if(computerScore >= 5){
-        document.getElementById("winLose").innerHTML = `You lose sucker`;
+        document.getElementById("winLose").innerHTML = `My condolences, the computer won.`;
         disablePlayButtons();
 
     } else if (userScore >= 5){
-        document.getElementById("winLose").innerHTML = `You win sucker`;
+        document.getElementById("winLose").innerHTML = `Congratulations, you won!`;
         disablePlayButtons();
     }
 }
