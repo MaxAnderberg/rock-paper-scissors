@@ -1,4 +1,4 @@
-const rockPaperScissorList = ["rock", "paper", "scissors"] // different styles
+const rockPaperScissorList = ["rock", "paper", "scissors"]
 let userScore = 0;
 let computerScore = 0;
 
@@ -11,13 +11,13 @@ function computerPlay() {
     let listLength = rockPaperScissorList.length
     return rockPaperScissorList[getRandomInt(listLength)]
 }
+
 // randomize the computer selection
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-// play round function - this function is going to call the computer selection and handle the logic for winning and loosing and tie
-// TODO: REFACTOR THE CODE AND MAKE SMALLER FUNCTIONS THAT WILL DEAL WITH THE LOGIC BEHIND THE GAME
+// main logic for handling winning and losing a round 
 function playRound(user, computer) {
     // check if the user said either, rock, paper or scissor
     if (rockPaperScissorList.includes(user)) {
@@ -87,7 +87,7 @@ function enablePlayButtons(){
     scissorsButton.disabled = false;
 }
 
-function game() {
+function updateGameInfo() {
     document.getElementById("scoreText").innerHTML = `Computer: ${displayComputerScore()} - User: ${displayUserScore()}`;
     if(computerScore >= 5){
         document.getElementById("winLose").innerHTML = `My condolences, the computer won.`;
@@ -98,21 +98,24 @@ function game() {
         disablePlayButtons();
     }
 }
+    /* 
+    add event listeners for the buttons, 'rock', 'paper', 'scissors', and 'play again'
+    with each button click update the game info
+    */
     rockButton.addEventListener("click", function () {
-        const gameText = playRound(askUser("rock"), computerPlay());
-        
-        console.log(gameText)
-        game();
+        playRound(askUser("rock"), computerPlay());
+        updateGameInfo();
  
     });
 
     paperButton.addEventListener("click", function () {
         playRound(askUser("paper"), computerPlay());
-        game();
+        updateGameInfo();
     });
+
     scissorsButton.addEventListener("click", function () {
         playRound(askUser("scissors"), computerPlay());
-        game();
+        updateGameInfo();
     });
 
 // reset the score
@@ -123,5 +126,5 @@ document.getElementById("playagain").addEventListener("click", function () {
     document.getElementById("playedhand").innerHTML = (`Let the games begin`);
 
     enablePlayButtons();
-    game()
+    updateGameInfo()
 });
