@@ -68,9 +68,8 @@
     backdrop-filter: blur(3rem);
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-evenly; I might want to change this - might use fixed positions */
     text-align: center;
-    box-shadow: 3px 0px 15px rgba(0,0,0,.2); /* Might remove the box shadow later*/
+    box-shadow: 3px 0px 15px rgba(0,0,0,.2);
     flex: 1;
   }
   
@@ -99,8 +98,6 @@ button:hover{
 
 
 .playbutton button{
-    /* background-color: #43BCE8; light blue */
-
     background: linear-gradient(
         to bottom right,
         rgba(67, 188, 232,0.4),
