@@ -22,7 +22,7 @@ function playRound(user, computer) {
     // check if the user said either, rock, paper or scissor
     if (rockPaperScissorList.includes(user)) {
         if (user === computer) {
-            return document.getElementById("playedhand").innerHTML = (`You both said ${user}. So that is a tie.`) 
+            return document.getElementById("playedhand").innerHTML = (`Tie: Both said ${user}.`) 
         } else if (user === "rock") {
             if (computer === "paper") {
                 increaseComputerScore();
