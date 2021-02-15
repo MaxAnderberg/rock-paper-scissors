@@ -96,6 +96,10 @@ button:hover{
     box-shadow: 0 1px 4px rgb(0, 0, 0);
 }
 
+button:focus{
+  outline: 0;
+}
+
 
 .playbutton button{
     background: linear-gradient(
@@ -223,5 +227,3 @@ button:hover{
     font-size: 25px;
     font-weight: 400;
   }
-
-
